@@ -51,7 +51,7 @@ public class ElevatorMirror : NetworkBehaviour
 
     private void Start()
     {
-        floor = 0;
+        
         buttonDown.SetActive (false);
         
     }
@@ -66,7 +66,7 @@ public class ElevatorMirror : NetworkBehaviour
         {
             CmdLiftTurun();
         }
-        if(isElevatorUp)
+        if(Elevator_number == 1)
         {
             if (elevatorCoroutine == null)
             {
@@ -78,7 +78,7 @@ public class ElevatorMirror : NetworkBehaviour
            
             
         }
-        else if(isElevatorDown)
+        else if(Elevator_number == 2)
         {
             if (elevatorCoroutine == null)
             {
@@ -110,7 +110,7 @@ public class ElevatorMirror : NetworkBehaviour
         elevatorCoroutine = null;
         isElevatorUp = false;
         Elevator_number = 0;
-        floor = 0;
+        
         OnElevatorUp?.Invoke();
     }
     private IEnumerator ElevatorDownward()
